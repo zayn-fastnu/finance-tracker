@@ -1,0 +1,24 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar-brand{
+    font-size: 2rem;
+}
+
+.card{
+
+    width: 300px;
+}
+
+.card-header{
+    background-color:#f0f8ff;
+}
+.card-header:hover{
+    background-color:white
+}
+
+#login{
+    float:right;
+}
+#signup{
+    margin: 0 auto;
+}
