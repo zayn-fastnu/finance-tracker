@@ -21,3 +21,6 @@
 
 <div id="results">
 </div>
+<% if !@tracked_stocks.empty? %>
+    <%= render 'users/sessions/stocks/list' %>
+<% end %>

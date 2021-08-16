@@ -3,6 +3,7 @@
 class Users::SessionsController < Devise::SessionsController
   
   def my_portfolio
+    @tracked_stocks = current_user.stocks
   end 
   # before_action :configure_sign_in_params, only: [:create]
 
