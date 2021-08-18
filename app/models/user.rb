@@ -34,13 +34,15 @@ class User < ApplicationRecord
     param[:q].values.reject(&:blank?).any?
   end
 
-  def find_users(param)
+  def find_friends(param)
     @q = User.ransack(param[:q])
-    @friends =@q.result(distinct: true)
-    unless @friends.empty?
-    return @friends.reject { |user| user.id == id}
+    friends =@q.result(distinct: true)
+    unless friends.empty?
+      friends = friends.reject { |user| user.id == id}
+      return nil if friends.empty?
+      return friends
     end
-    nil
+   nil
   end
 
   def not_friends_with?(id_of_friend)

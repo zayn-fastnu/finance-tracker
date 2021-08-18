@@ -12,7 +12,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def search
     if User.params_allowed?(params)
-      @friends = current_user.find_users(params)
+      @friends = current_user.find_friends(params)
         unless @friends == nil
           respond_to do |format|
           format.js { render partial: 'users/sessions/friend_result'}
