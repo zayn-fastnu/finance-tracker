@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get "my_portfolio" => "users/sessions"
+    get 'my_portfolio' => 'users/sessions'
+    get 'my_friends' => 'users/sessions'
+    get 'search_friend'=> 'users/sessions#search'
     end
 end
 #do
