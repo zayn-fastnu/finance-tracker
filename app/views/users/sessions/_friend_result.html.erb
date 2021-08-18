@@ -1,13 +1,28 @@
 <div class="results-block">
 	<%= render 'layouts/messages' %>
 </div>
-<% if @friend %>
-    <% @friend.each do |f| %>
+<% if @friends %>
+    
     <div class="card card-header results-block">
-        <strong>Name: </strong> <%= f.full_name %>
-        <strong>Email: </strong> <%= f.email %>
-        <strong>Friend: </strong> <%= f.email %>
-        <%= link_to 'Add to portfolio', '#', class: "btn btn-success", method: :post %>
+        <table class="col-md-12">
+            <tbody>
+                <% @friends.each do |friend| %>
+                    <tr>
+                        <td><strong>Name: </strong> <%= friend.full_name %> </td>
+                        <td><strong>Email: </strong> <%= friend.email %> </td>
+                        <td> <strong>Actions: </strong> </td>
+                        <td> <%= link_to 'Visit profile', '#', class: "btn btn-success" %>
+                        <% if current_user.not_friends_with?(friend.id)%>
+                            <%= link_to 'Add to portfolio', '#', class: "btn btn-success", method: :post %>
+                        <% else %>
+                            <span class="badge badge-secondary"> You are friends </span>
+                        <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
-    <% end %>
+
+    
 <% end %>

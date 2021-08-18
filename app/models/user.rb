@@ -30,4 +30,20 @@ class User < ApplicationRecord
     "Anonymous"
   end
 
+  def self.params_allowed?(param)
+    param[:q].values.reject(&:blank?).any?
+  end
+
+  def find_users(param)
+    @q = User.ransack(param[:q])
+    @friends =@q.result(distinct: true)
+    unless @friends.empty?
+    return @friends.reject { |user| user.id == id}
+    end
+    nil
+  end
+
+  def not_friends_with?(id_of_friend)
+    !friends.where(id: id_of_friend).exists?
+  end 
 end

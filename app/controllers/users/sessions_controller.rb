@@ -11,10 +11,9 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def search
-    if params[:q].values.reject(&:blank?).any?
-      @q = User.ransack(params[:q])
-      @friend =@q.result(distinct: true)
-        unless @friend.empty?
+    if User.params_allowed?(params)
+      @friends = current_user.find_users(params)
+        unless @friends == nil
           respond_to do |format|
           format.js { render partial: 'users/sessions/friend_result'}
           end

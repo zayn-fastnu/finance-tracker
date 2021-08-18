@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :user_stocks, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
   #devise_for :users
   root "welcome#index"
   get '/welcome', to: "welcome#index"
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     get 'my_friends' => 'users/sessions'
     get 'search_friend'=> 'users/sessions#search'
     end
+
 end
 #do
  # devise_for :users
