@@ -1,20 +1,10 @@
 <h1> My Friends </h1>
-<div class='search-area'>
-    <h3> Search friend </h3>
-    <%= form_tag search_friend_path, remote: true, method: :get do %>
-    <div class="form-group row">
-        <div class="col-sm-9 no-right-padding">
-            <%=text_field_tag :friend, params[:friend], placeholder: "Name or email", autofocus: true, class: "form-control form-control-lg"%>
-        </div>
-        <div class="col-sm-3 no-left-padding">
-            <%=button_tag type: :submit, class: "btn btn-success" do%>
-            <i class="fa fa-search fa-2x"></i>
-            <% end %>
-            
-        </div>
-    </div>
-    <% end %>
-</div>
+
+<%= search_form_for @q,url: search_friend_path, :remote => true do |f| %>
+  <%= f.label :_cont,"Search friend" %>
+  <%= f.search_field :first_name_or_last_name_or_email_cont %>
+  <%= f.submit %>
+  <% end %>
 
 <div id="results">
 </div>

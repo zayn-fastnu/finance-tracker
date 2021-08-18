@@ -11,18 +11,19 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def search
-    if params[:friend].present?
-      @friend = params[:friend]
-      if @friend
-        respond_to do |format|
+    if params[:q].values.reject(&:blank?).any?
+      @q = User.ransack(params[:q])
+      @friend =@q.result(distinct: true)
+        unless @friend.empty?
+          respond_to do |format|
           format.js { render partial: 'users/sessions/friend_result'}
+          end
+        else
+          respond_to do |format|
+            flash.now[:alert] = "No user found!"
+            format.js { render partial: 'users/sessions/friend_result'}
+          end
         end
-      else
-        respond_to do |format|
-          flash.now[:alert] = "No user found!"
-          format.js { render partial: 'users/sessions/friend_result'}
-        end
-      end
     else
       respond_to do |format|
         flash.now[:alert] = "Please enter a friend's name or email to search"

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "welcome#index"
   get '/welcome', to: "welcome#index"
   get 'search_stock', to: "stocks#search"
+  
   #get 'my_portfolio',to: 'users/sessions#my_portfolio'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
