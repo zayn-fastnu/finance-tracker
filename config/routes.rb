@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'my_portfolio' => 'users/sessions'
     get 'my_friends' => 'users/sessions'
     get 'search_friend'=> 'users/sessions#search'
+    get 'view_profile' => 'users/sessions#show'
     end
 
 end

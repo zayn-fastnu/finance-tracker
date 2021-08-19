@@ -2,7 +2,6 @@
 	<%= render 'layouts/messages' %>
 </div>
 <% if @friends %>
-    
     <div class="card card-header results-block">
         <table class="col-md-12">
             <tbody>
@@ -11,9 +10,9 @@
                         <td><strong>Name: </strong> <%= friend.full_name %> </td>
                         <td><strong>Email: </strong> <%= friend.email %> </td>
                         <td> <strong>Actions: </strong> </td>
-                        <td> <%= link_to 'Visit profile', '#', class: "btn btn-success" %>
+                        <td> <%= link_to 'Visit profile', view_profile_path(id: friend.id), class: "btn btn-success" %>
                         <% if current_user.not_friends_with?(friend.id)%>
-                            <%= link_to 'Add to portfolio', friendships_path(friend: friend), class: "btn btn-success", method: :post %>
+                            <%= link_to 'Follow friend?', friendships_path(friend: friend), class: "btn btn-success", method: :post %>
                         <% else %>
                             <span class="badge badge-secondary"> You are friends </span>
                         <% end %>
@@ -24,5 +23,4 @@
         </table>
     </div>
 
-    
 <% end %>
