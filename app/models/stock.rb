@@ -5,8 +5,8 @@ class Stock < ApplicationRecord
     def self.new_lookup(ticker_symbol)
         ticker_symbol.upcase!
         client = IEX::Api::Client.new(
-            publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
-            secret_token: Rails.application.credentials.iex_client[:secret_api_key],
+            publishable_token: "Tpk_5061f0b8cfbb4f5cad9427bfd5a26dad", 
+            secret_token:"Tsk_ea83c24d59ff49818432b8c65273d605",
             endpoint: 'https://sandbox.iexapis.com/v1')
         begin    
             new(ticker: ticker_symbol, name: client.company(ticker_symbol).company_name,last_price: client.price(ticker_symbol))
