@@ -7,21 +7,20 @@
       <div class="form-group row col-sm-12">
         <%= f.text_field :first_name_or_last_name_or_email_cont,class:"col-sm-9 no-right-padding" ,placeholder: "Enter name or email to search"  %>
         <%# f.submit %>
-        
         <div class="col-sm-3 no-left-padding">
           <%=button_tag type: :submit, class: "btn btn-success" do%>
             <i class="fa fa-search fa-2x"></i>
           <% end %>
         </div>
+
       </div>
+
     <% end %>
   </div>
-
-    
 
   <div id="results">
   </div>
   <% unless @friends.empty? %>
-  <%= render 'users/sessions/friends/friend_list' %>
+    <%= render 'users/sessions/friends/friend_list' %>
   <% end %>
 <div>
