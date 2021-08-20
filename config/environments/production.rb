@@ -39,7 +39,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-  host = 'www.herokuapp.com' #← Match with the host name of the above code
+  host = 'finance-tracker-devden.herokuapp.com' #← Match with the host name of the above code
   Rails.application.routes.default_url_options[:host] = host
 
   # Mount Action Cable outside main process or domain.
