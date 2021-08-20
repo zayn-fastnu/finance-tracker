@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   #get 'my_portfolio',to: 'users/sessions#my_portfolio'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
 
   devise_scope :user do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     get 'my_friends' => 'users/sessions'
     get 'search_friend'=> 'users/sessions#search'
     get 'view_profile' => 'users/sessions#show'
+    get 'passwords' => 'users/passwords#new'
     end
 
 end

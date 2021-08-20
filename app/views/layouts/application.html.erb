@@ -10,9 +10,9 @@
   </head>
   <body>
     <%= render 'layouts/navigation' %>
-    <div class="container">
+    <body class= <%=render partial: "layouts/background" %> >
       <%= render 'layouts/messages' %>
       <%= yield %>
-    </div>
+    </body>
   </body>
 </html>

@@ -1,5 +1,10 @@
+<div id="signup-title">
+	<p>Join Us</p>
+	<p>We are the one for you! </p>
+</div>
+
 <div id="signup" class="card text-center">
-	<div class="card-header"> Sign Up </div>
+	<div id = "signup-card-header" class="card-header"> Sign Up </div>
 	<div class="card-body">
 		<h5 class="card-title">Create an account</h5>
 		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -33,7 +38,7 @@
 		</div>
 		<div class="actions-signup">
 			<br>
-			<%= f.submit "Sign up", :class => "btn btn-primary" %>
+			<%= f.submit "Sign up", :class => "btn btn-success" %>
 			<%= render "users/shared/links" %>
 		</div>
 		<% end %>

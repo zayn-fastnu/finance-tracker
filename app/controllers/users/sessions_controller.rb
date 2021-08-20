@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  def new
+    @new_user = true
+    super
+  end
   
   def my_portfolio
     @user = current_user
