@@ -4,17 +4,13 @@
     <h3> Search friend </h3>
     <%= search_form_for @q,url: search_friend_path, :remote => true do |f| %>
       <%# f.label :_cont, %>
-      <div class="form-group row col-sm-12">
-        <%= f.text_field :first_name_or_last_name_or_email_cont,class:"col-sm-9 no-right-padding" ,placeholder: "Enter name or email to search"  %>
-        <%# f.submit %>
-        <div class="col-sm-3 no-left-padding">
-          <%=button_tag type: :submit, class: "btn btn-success" do%>
-            <i class="fa fa-search fa-2x"></i>
-          <% end %>
-        </div>
+      <div class="row">
+        <%= f.text_field :first_name_or_last_name_or_email_cont,class: "input-margin col-9" ,placeholder: "Enter name or email to search"  %>
+        <br><br>
+        <%=button_tag '', type: :submit, class: "btn btn-success fa fa-search"%>
 
       </div>
-
+      <br>
     <% end %>
   </div>
 
