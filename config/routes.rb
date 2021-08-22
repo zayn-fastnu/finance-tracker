@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     get 'search_friend'=> 'users/sessions#search'
     get 'view_profile' => 'users/sessions#show'
     get 'passwords' => 'users/passwords#new'
+    get 'refresh' => 'users/sessions'
+    get 'order_up' => 'users/sessions'
+    get 'order_down' => 'users/sessions'
     end
 
 end

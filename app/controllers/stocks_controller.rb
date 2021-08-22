@@ -2,7 +2,8 @@ class StocksController < ApplicationController
     
     def search
         if params[:stock].present?
-            @stock = Stock.new_lookup(params[:stock])
+            client = Stock.conn()
+            @stock = Stock.new_lookup(client, params[:stock])
             if @stock
                 respond_to do |format|
                     format.js { render partial: 'users/sessions/result'}

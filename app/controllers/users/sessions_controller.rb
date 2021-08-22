@@ -41,6 +41,34 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  def price_results(stocks)
+    @tracked_stocks = stocks
+    @user = current_user
+    if @tracked_stocks
+      respond_to do |format|
+        flash.now[:notice] = "Stocks updated succesfully!"
+        format.js {render partial: 'users/sessions/stocks/list'}
+      end  
+    else
+      respond_to do |format|
+        flash.now[:alert] = "Stocks can't be updated at the moment. Please try again!"
+        format.js {render partial: 'users/sessions/stocks/list'}
+      end
+      
+    end
+  end
+
+  def refresh
+    price_results(Stock.update_stocks(current_user.stocks))
+  end
+
+  def order_up
+    price_results(Stock.sort_up(current_user.stocks))
+  end 
+
+  def order_down
+    price_results(Stock.sort_down(current_user.stocks))
+  end 
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

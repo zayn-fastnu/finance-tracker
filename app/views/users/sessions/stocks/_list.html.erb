@@ -1,3 +1,6 @@
+<div class="results-block">
+	<%= render 'layouts/messages' %>
+</div>
 <div class="row">
   <div class="col-9">
     <table class="table table-bordered table-hover">
@@ -5,7 +8,13 @@
           <tr>
             <th scope="col">Ticker</th>
             <th scope="col">Name</th>
-            <th scope="col">Price</th>
+            <th scope="col">Price 
+              <span id ="price-buttons"> 
+                <%= link_to '', refresh_path, remote: true,  class: "btn btn-success fa fa-redo-alt" %> 
+                <%= link_to '', order_up_path, remote: true, class: "btn btn-success fa fa-angle-double-up" %>
+                <%= link_to '', order_down_path, remote: true, class: "btn btn-success fa fa-angle-double-down" %>
+              </span>
+            </th>
             <th scope="col">Actions</th>
           </tr>
       </thead>
@@ -15,7 +24,7 @@
               <tr>
                 <th scope="row"><%= stock.ticker %></th>
                 <td><%= stock.name %></td>
-                <td><%= stock.last_price %></td>
+                <td><%= stock.last_price %> </td>
                 <td>
                   <% if current_user.can_track_stock?(stock.ticker) %>
                     <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: stock.ticker), class: "btn btn-success", method: :post %>

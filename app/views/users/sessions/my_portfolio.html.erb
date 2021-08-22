@@ -22,7 +22,9 @@
 
     <div id="results">
     </div>
-    <% unless @tracked_stocks.empty? %>
-        <%= render 'users/sessions/stocks/list' %>
-    <% end %>
+    <div id="display">
+        <% unless @tracked_stocks.empty? %>
+            <%= render 'users/sessions/stocks/list' %>
+        <% end %>
+    </div>
 <div>
