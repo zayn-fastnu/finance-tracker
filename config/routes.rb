@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get 'refresh' => 'users/sessions'
     get 'order_up' => 'users/sessions'
     get 'order_down' => 'users/sessions'
+    get 'web_search' => 'users/sessions'
     end
 
 end

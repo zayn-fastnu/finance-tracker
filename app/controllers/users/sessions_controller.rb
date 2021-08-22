@@ -69,6 +69,17 @@ class Users::SessionsController < Devise::SessionsController
   def order_down
     price_results(Stock.sort_down(current_user.stocks))
   end 
+
+  def web_search
+    
+    @search = GoogleSearch.new({
+      q: params[:query], # search search
+      tbm: "nws", # news
+      tbs: "qdr:d", # last 24h
+      num: 10
+    })
+    
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

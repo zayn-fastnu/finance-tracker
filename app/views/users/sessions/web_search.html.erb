@@ -1,0 +1,37 @@
+<div class="container">
+    <p class="main-title"> Latest results for "<%= params[:query]%>" </p> <br>
+    <% news_results_list = @search.get_hash[:news_results] %>
+    <% news_results_list.each do |news_result| %>
+        <div id = "google-results">
+            <div id = "img-result">
+              <img src = <%= "#{news_result[:thumbnail]}" %>>
+            </div>
+
+            <div id = "remaining-results">
+              <div class = "google-classic">
+                <%= "#{news_result[:title]}" %>
+              </div>
+              
+              <div id="source-date-result">
+                <span id = "source-result">
+                  <%= "#{news_result[:source]}" %>
+                </span>
+
+                <span class="google-classic">
+                  <%= "#{news_result[:date]}" %>  <br>
+                </span>
+
+              </div>
+
+              <%= "#{news_result[:snippet]}" %> <br>
+              <div class = "google-classic">
+                <a href=  <%= link = "#{news_result[:link]}" %>> <%= link %> </a> <br>
+              </div>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+    <% end %>
+<div>
