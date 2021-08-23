@@ -28,9 +28,9 @@ class Stock < ApplicationRecord
 	def self.update_stocks(current_stocks)
 		client = conn()
 		current_stocks.each do |f|
-				res = new_lookup(client, f.ticker)
-				f.last_price = res.last_price
-				f.save
+			res = new_lookup(client, f.ticker)
+			f.last_price = res.last_price
+			f.save
 		end 
 		current_stocks
 	end

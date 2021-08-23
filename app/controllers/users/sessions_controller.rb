@@ -49,12 +49,12 @@ class Users::SessionsController < Devise::SessionsController
     if @tracked_stocks
       respond_to do |format|
         flash.now[:notice] = "Stocks updated succesfully!"
-        format.js {render partial: 'users/sessions/stocks/list' }
+        format.js { render partial: 'users/sessions/stocks/list' }
       end  
     else
       respond_to do |format|
         flash.now[:alert] = "Stocks can't be updated at the moment. Please try again!"
-        format.js {render partial: 'users/sessions/stocks/list' }
+        format.js { render partial: 'users/sessions/stocks/list' }
       end
     end
   end
