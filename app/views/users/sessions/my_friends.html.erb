@@ -1,21 +1,20 @@
 <div class="container">
   <h1 class="main-title"> My Friends </h1>
+
   <div class='search-area'>
     <h3> Search friend </h3>
     <%= search_form_for @q,url: search_friend_path, :remote => true do |f| %>
-      <%# f.label :_cont, %>
+
       <div class="row">
         <%= f.text_field :first_name_or_last_name_or_email_cont,class: "input-margin col-9" ,placeholder: "Enter name or email to search"  %>
         <br><br>
         <%=button_tag '', type: :submit, class: "btn btn-success fa fa-search"%>
+      </div><br/>
 
-      </div>
-      <br>
     <% end %>
   </div>
 
-  <div id="results">
-  </div>
+  <div id="results"></div>
   <% unless @friends.empty? %>
     <%= render 'users/sessions/friends/friend_list' %>
   <% end %>

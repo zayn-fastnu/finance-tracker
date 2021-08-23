@@ -14,10 +14,12 @@
       <br>
       <%= f.submit "Send me reset password instructions", class:'btn btn-primary' %>
     </div>
-    
+
     <% end %>
+    <br>
+    
     <div id="password-links">
-      <br>
+      
       <%= link_to 'Log in', user_session_path, class: 'btn btn-sm btn-success' %>
       <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-sm btn-success' %>
     </div>

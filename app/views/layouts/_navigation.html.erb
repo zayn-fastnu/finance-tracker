@@ -1,35 +1,40 @@
 <% if current_user %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <%= link_to 'FinanceTracker' , root_path, class: 'navbar-brand' %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item <%= nav_status(request.path, my_portfolio_path) %>">
-                    <%= link_to "My Portfolio", my_portfolio_path, class: 'nav-link'%>
-                </li>
-                <li class="nav-item <%= nav_status(request.path, my_friends_path) %>"> 
-                    <%= link_to "My Friends", my_friends_path, class: 'nav-link'%> 
-                </li>
-                <li class="nav-item <%= nav_status(request.path, edit_user_registration_path) %>">
-                    <%= link_to "Edit profile", edit_user_registration_path, class: 'nav-link' %>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item user-name">
-                    <span class="fa fa-user"></span>
-                    <%= current_user.full_name %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to("Logout", destroy_user_session_path, class: "btn btn-danger logout-button", method: :delete) %>
-                </li>
-            </ul>
-            <%=form_tag web_search_path, class:"form-inline my-2 my-lg-0", method: :get do %>
-            <%=text_field_tag :query, params[:query], placeholder: "Search", autofocus: true, class: "form-control mr-sm-2"%>
-            <%=button_tag :Search, type: :submit, class: "btn btn-outline-success my-2 my-sm-0" %>
-            <% end %>            
-        </div>
-            
-    </div>
-    </nav>
-    <%end%>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">
+			<%= link_to 'FinanceTracker' , root_path, class: 'navbar-brand' %>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item <%= nav_status(request.path, my_portfolio_path) %>">
+						<%= link_to "My Portfolio", my_portfolio_path, class: 'nav-link'%>
+					</li>
+
+					<li class="nav-item <%= nav_status(request.path, my_friends_path) %>"> 
+						<%= link_to "My Friends", my_friends_path, class: 'nav-link'%> 
+					</li>
+
+					<li class="nav-item <%= nav_status(request.path, edit_user_registration_path) %>">
+						<%= link_to "Edit profile", edit_user_registration_path, class: 'nav-link' %>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item user-name">
+						<span class="fa fa-user"></span>
+						<%= current_user.full_name %>
+					</li>
+
+					<li class="nav-item">
+						<%= link_to("Logout", destroy_user_session_path, class: "btn btn-danger logout-button", method: :delete) %>
+					</li>
+				</ul>
+
+				<%=form_tag web_search_path, class:"form-inline my-2 my-lg-0", method: :get do %>
+				<%=text_field_tag :query, params[:query], placeholder: "Search", autofocus: true, class: "form-control mr-sm-2"%>
+				<%=button_tag :Search, type: :submit, class: "btn btn-outline-success my-2 my-sm-0" %>
+				<% end %>
+			</div>
+						
+		</div>
+	</nav>
+<% end %>

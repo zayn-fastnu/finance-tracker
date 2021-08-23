@@ -8,11 +8,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <%= render 'layouts/navigation' %>
-    <body class= <%=render partial: "layouts/background" %> >
-      <%= render 'layouts/messages' %>
-      <%= yield %>
-    </body>
+
+  <%= render 'layouts/navigation' %>	
+	
+  <body class= <%=render partial: "layouts/background" %> >
+    <%= render 'layouts/messages' %>
+    <%= yield %>
   </body>
 </html>
