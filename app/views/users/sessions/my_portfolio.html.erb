@@ -1,0 +1,23 @@
+<div class="container">
+	<h1 class="main-title"> My Portfolio </h1>
+	<div class='search-area'>
+		<h3> Search stocks </h3>
+		<%= form_tag search_stock_path, remote: true, method: :get do %>
+		<div class="form-group row">
+		
+				<div class="col-sm-9 no-right-padding">
+						<%=text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg"%>
+				</div>
+
+				<%=button_tag '', type: :submit, class: "btn btn-success fa fa-search"%>
+		</div>
+		<% end %>
+	</div>
+
+	<div id="results"></div>
+	<div id="display">
+		<% unless @tracked_stocks.empty? %>
+			<%= render 'users/sessions/stocks/list' %>
+		<% end %>
+	</div>
+<div>

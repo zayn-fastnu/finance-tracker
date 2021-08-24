@@ -1,12 +1,31 @@
 Rails.application.routes.draw do
+  resources :user_stocks, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
   #devise_for :users
   root "welcome#index"
   get '/welcome', to: "welcome#index"
+  get 'search_stock', to: "stocks#search"
+  
+  #get 'my_portfolio',to: 'users/sessions#my_portfolio'
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
-end
 
+  devise_scope :user do
+    get 'my_portfolio' => 'users/sessions'
+    get 'my_friends' => 'users/sessions'
+    get 'search_friend'=> 'users/sessions#search'
+    get 'view_profile' => 'users/sessions#show'
+    get 'passwords' => 'users/passwords#new'
+    get 'refresh' => 'users/sessions'
+    get 'order_up' => 'users/sessions'
+    get 'order_down' => 'users/sessions'
+    get 'web_search' => 'users/sessions'
+    end
+
+end
 #do
  # devise_for :users
   #root "welcome#index"

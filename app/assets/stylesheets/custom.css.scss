@@ -1,0 +1,190 @@
+@import 'bootstrap/dist/css/bootstrap';
+@mixin title{
+	float: left;
+	text-align: center;
+}
+
+@mixin background{
+	background-size: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+$color:black;
+$size: 30px;
+$font: Helvetica;
+$weight: bold;
+
+.navbar-brand{
+  font-size: 2rem;
+}
+
+.card-header{
+	border: 1px solid white;
+	background-color:#f0f8ff;
+	color: $color;
+}
+.card-header:hover{
+	background-color: transparent;
+	color: $color;
+}
+
+#login{
+	float:right;
+	width: 300px;
+	position: relative;
+	margin-top: 10%;
+	margin-right: 28%;
+	background-color: #F8f8ff;
+	border: 2px solid white;
+	color: $color;
+    
+}
+.field>input{
+	background: white;
+	opacity: 0.8;
+	color: $color;
+}
+
+#signup{
+	width: 380px;
+	margin-top: 2%;
+	margin-right: 7%;   
+}
+#signup-card-header{
+	background-color: #00FF7F;
+	color: $color;
+	border:  none;
+
+}
+.login-title{
+	@include title;
+	color: white;
+	opacity: 0.7;
+	margin-left: 22%;
+	margin-top: 21%;
+}
+
+#signup-title{
+	@include title;
+	color: $color;
+	font-size: $size;
+	font-family: $font;
+	font-weight: $weight;
+	margin-left: 20%;
+	margin-top: 16%;
+	margin-right: 4%;
+}
+.search-area{
+	padding-top: 50px;
+}
+
+.no-left-padding{
+	padding-left: 0 !important;
+}
+
+.no-right-padding{
+  padding-right: 0 !important;
+}
+
+.results-block{
+	display: inline-block;
+	margin-bottom: 1rem;
+}
+
+.logout-button{
+  margin-right: 5px;
+}
+
+.user-name{
+  padding-top: 4px;
+  padding-right: 5px;
+}
+
+.edit-title{
+  margin-left: 8px; 
+  margin-top: 4px;  
+}
+
+.action-login{
+  float: right;
+}
+
+.edit-buttons{
+  display: inline-block;
+}
+
+form.new_user{
+  background-image: none;
+}
+.new_user{
+  background-image: url('index1.jpg');
+  @include background;
+}
+
+.card{
+  opacity: 0.9;
+}
+
+.new_account{
+  background-image: url('join.jpg');
+  @include background;
+}
+
+.password-page{
+  color: white;
+  font-size: $size;
+  text-align: center;
+  margin-top: 12%;
+}
+
+#password-page-sub{
+  font-size: 18px;
+  margin-top: 3%;
+  border-spacing: 1px;
+}
+
+.new_pass{
+	background-image: url('pass.jpg');
+	@include background;
+}
+
+.main-title{
+  margin-top: 2%;
+}
+
+#price-buttons{
+  margin-left: 5%;
+}
+
+#google-results{
+	color: black;
+	font-family: Helvetica;
+	font-size: 16px;
+}
+
+#img-result{
+	margin-top: 1%;
+	float: left;
+	clear: right;
+	margin-right: 2%;
+}
+
+#remaining-results{
+  margin-left: 12%;
+}
+
+.google-classic{
+  color: blue;
+}
+
+#source-result{
+  color: green;
+}
+
+.input-margin{
+  margin-left: 1%;
+}
+
+i.fa { 
+  font-family:FontAwesome!important; 
+}
